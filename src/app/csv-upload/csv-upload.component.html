@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-12">
+      <h6>CSV File Upload</h6>
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <input
+        type="file"
+        class="file-input"
+        accept=".csv, application/vnd.ms-excel,"
+        (change)="changeListener($event)"
+        (click)="onFileUploadClick()"
+        #fileUpload
+      />
+
+      <div class="file-upload">
+        {{ file?.name || "No file uploaded yet." }}
+
+        <button
+          color="primary"
+          class="btn btn-primary ms-2"
+          (click)="fileUpload.click()"
+        >
+          Upload File
+        </button>
+      </div>
+      <span *ngIf="!file" class="text-danger">{{ message }}</span>
+    </div>
+    <div class="col-sm-2">
+      <button class="btn btn-primary" (click)="onUpload()">
+        Click To Upload
+      </button>
+    </div>
+  </div>
+</div>
