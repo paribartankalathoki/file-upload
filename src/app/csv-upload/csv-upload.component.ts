@@ -42,7 +42,7 @@ export class CsvUploadComponent implements OnInit {
     reader.readAsText(this.file);
     reader.onload = (e) => {
       let csv: string = reader.result as string;
-      // now you can save your data into database
+      // now you can save your data into database by calling your api
       console.log(csv);
     };
   }
