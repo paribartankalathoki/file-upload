@@ -18,6 +18,8 @@ export class ImageUploadComponent implements OnInit {
 
   file: File | any;
 
+  imageFile: File | any;
+
   constructor(
     private uploadServiceService: UploadServiceService
   ) {}
@@ -71,6 +73,23 @@ export class ImageUploadComponent implements OnInit {
         this.file = this.fileName = '';
         console.log('could not upload file');
       } 
+    });
+  }
+
+
+  onImageUpload(event: any) {
+    this.imageFile = event.target.files[0];
+  }
+
+  onFileSave() {
+    const formData = new FormData();
+    formData.append('file', this.imageFile);
+    this.uploadServiceService.uploadImage(formData).subscribe({
+      next: (response) => {
+        console.log('upload successful');
+      }, error: (err) => {
+        console.error('error while uploading file');
+      }
     });
   }
 

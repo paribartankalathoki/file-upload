@@ -1,7 +1,32 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-sm-12">
-            <h6>Image Upload</h6>
+            <h6>Simply Image Upload</h6>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <input
+            type="file"
+            class="file"
+            accept=".png, .jpg, .jpeg"
+            (change)="onImageUpload($event)"
+            />
+        </div>
+        <div class="col-sm-4">
+            <button (click)="onFileSave()" class="btn btn-outline-primary">
+                Save
+            </button>
+        </div>
+    </div>
+    
+    <br>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h6>Image Upload With Choice</h6>
             <hr />
         </div>
     </div>
